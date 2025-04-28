@@ -39,7 +39,11 @@ sudo tar -C /usr/local -xzf /tmp/nvim-linux-x86_64.tar.gz
 sudo mv /usr/local/nvim-linux-x86_64 /usr/local/nvim
 # End - Nvim
 
+# Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 # FiraCode font
 wget -O /tmp/FiraCode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip
