@@ -112,13 +112,14 @@ fi
 bindkey "\033[1~" beginning-of-line
 bindkey "\033[4~" end-of-line
 
-path=("/home/alex/nvim/bin" $path)
-path+=("/home/alex/.npm-global/bin")
-path+=("/home/alex/.cargo/bin")
+path=("/home/$USER/nvim/bin" $path)
+path+=("/home/$USER/.npm-global/bin")
+path+=("/home/$USER/.cargo/bin")
 path+=("/usr/local/go/bin")
+path+=("/usr/local/nvim/bin")
 
 # pnpm
-export PNPM_HOME="/home/alex/.local/share/pnpm"
+export PNPM_HOME="/home/$USER/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
