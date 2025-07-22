@@ -1,0 +1,82 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    "collaboration_panel": {
+        "dock": "right"
+    },
+    "outline_panel": {
+        "dock": "right"
+    },
+    "ssh_connections": [
+        {
+            "host": "192.168.21.11",
+            "username": "alex",
+            "projects": [
+                {
+                    "paths": ["/home/alex/work/ca-poc-stacks"]
+                },
+                {
+                    "paths": ["/home/alex/work/ca-poc-stacks/admin"]
+                }
+            ]
+        }
+    ],
+    "icon_theme": "Catppuccin Mocha",
+    "ui_font_size": 16,
+    "buffer_font_size": 13,
+    "scroll_beyond_last_line": "off",
+    "use_autoclose": false,
+    "use_auto_surround": false,
+    "theme": {
+        "mode": "system",
+        "light": "One Light",
+        "dark": "Catppuccin Mocha"
+    },
+    "vim_mode": true,
+    "vim": {
+        "toggle_relative_line_numbers": true
+    },
+    "hard_tabs": false,
+    "tab_size": 4,
+    "tab_bar": {
+        "show": true
+    },
+    "tabs": {
+        "show_diagnostics": "errors"
+    },
+    "indent_guides": {
+        "enabled": true,
+        "coloring": "fixed"
+    },
+    "languages": {
+        "GDScript": {
+            "hard_tabs": true
+        },
+        "Markdown": {
+            "preferred_line_length": 80,
+            "soft_wrap": "none",
+            "wrap_guides": [80]
+        }
+    },
+    "agent": {
+        "enabled": false
+    },
+    "features": {
+        "edit_prediction_provider": "none"
+    },
+    "git_panel": {
+        "dock": "right"
+    },
+    "file_finder": {
+        "modal_max_width": "xlarge"
+    },
+    "project_panel": {
+        "sticky_scroll": false
+    }
+}
