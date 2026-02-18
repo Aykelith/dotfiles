@@ -99,10 +99,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-# Alex
- export NVM_DIR=~/.nvm
- [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+
+### Alex
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
  if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
@@ -117,11 +119,24 @@ path+=("/home/$USER/.npm-global/bin")
 path+=("/home/$USER/.cargo/bin")
 path+=("/usr/local/go/bin")
 path+=("/usr/local/nvim/bin")
+path+=("/home/$USER/.local/bin")
+path+=("/opt/zig")
 
 # pnpm
-export PNPM_HOME="/home/$USER/.local/share/pnpm"
+export PNPM_HOME="/home/alexxanderx/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# to not record to history commands that start with space
+setopt HIST_IGNORE_SPACE
+
+# For alacritty autocomplete
+mkdir -p ${ZDOTDIR:-~}/.zsh_functions
+echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
+fpath+=${ZDOTDIR:-~}/.zsh_functions
