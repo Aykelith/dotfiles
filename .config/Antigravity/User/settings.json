@@ -3,5 +3,11 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "remote.autoForwardPortsSource": "hybrid",
     "vim.useSystemClipboard": true,
-    "json.schemaDownload.enable": true
+    "json.schemaDownload.enable": true,
+    "[markdown]": {
+        "editor.rulers": [
+            80
+        ]
+    },
+    "workbench.colorTheme": "Catppuccin Mocha"
 }

@@ -1,0 +1,18 @@
+{
+    "window.commandCenter": true,
+    "workbench.colorTheme": "Catppuccin Mocha",
+    "remote.SSH.remotePlatform": {
+        "alex@192.168.21.11": "linux"
+    },
+    "editor.fontSize": 13,
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.minimap.enabled": true,
+    "[markdown]": {
+        "editor.rulers": [
+            80
+        ]
+    },
+    "vim.useSystemClipboard": true,
+    "remote.autoForwardPortsSource": "hybrid",
+    "git.blame.editorDecoration.enabled": false
+}

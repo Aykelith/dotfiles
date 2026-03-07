@@ -11,3 +11,12 @@ TERM = "screen-256color"
 import = [
 "~/.config/alacritty/catppuccin-mocha.toml"
 ]
+
+[keyboard]
+[[keyboard.bindings]]
+key = "Home"
+chars = "\u001b[H"
+
+[[keyboard.bindings]]
+key = "End"
+chars = "\u001b[F"

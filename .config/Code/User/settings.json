@@ -1,0 +1,20 @@
+{
+  "workbench.iconTheme": "vscode-icons",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontSize": 14,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "vim.leader": "\\",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "["],
+            "commands": [":bprev"]
+        },
+        {
+            "before": ["<leader>", "]"],
+            "commands": [":bnext"]
+        }
+    ]
+}
+
