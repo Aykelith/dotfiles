@@ -1,0 +1,14 @@
+---
+- name: Install base packages
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+    - name: Install base packages
+      ansible.builtin.apt:
+        name:
+          - git
+          - build-essential
+        state: present
+        update_cache: true

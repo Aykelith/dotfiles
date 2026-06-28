@@ -1,0 +1,22 @@
+[font]
+size=9
+
+[font.normal]
+family="FiraCode Nerd Font Mono"
+
+[env]
+TERM = "screen-256color"
+
+[general]
+import = [
+"~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[keyboard]
+[[keyboard.bindings]]
+key = "Home"
+chars = "\u001b[H"
+
+[[keyboard.bindings]]
+key = "End"
+chars = "\u001b[F"

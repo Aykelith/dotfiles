@@ -1,0 +1,7 @@
+[
+    ["$HOME/.bashrc", "data/dotfiles/.bashrc"],
+    ["$HOME/.config/alacritty", "data/config/alacritty"],
+    ["$HOME/.tmux.conf", "data/dotfiles/.tmux.conf"],
+    ["$HOME/.wezterm.lua", "data/dotfiles/.wezterm.lua"],
+    ["$HOME/.zshrc", "data/dotfiles/.zshrc"]
+]

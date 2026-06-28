@@ -39,7 +39,7 @@ ZSH_THEME="duellj"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -105,7 +105,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
- if type rg &> /dev/null; then
+if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
@@ -118,13 +118,17 @@ bindkey "${terminfo[kend]}" end-of-line
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
-path=("/home/$USER/nvim/bin" $path)
-path+=("/home/$USER/.npm-global/bin")
+# Fix for Home and End for Tmux
+bindkey "^[OH" beginning-of-line
+bindkey "^[OF" end-of-line
+
+path=("/home/$USER/.npm-global/bin" $path)
 path+=("/home/$USER/.cargo/bin")
 path+=("/usr/local/go/bin")
 path+=("/usr/local/nvim/bin")
 path+=("/home/$USER/.local/bin")
 path+=("/opt/zig")
+path+=("/home/$USER/local-apps/nvim/bin")
 
 # pnpm
 export PNPM_HOME="/home/alexxanderx/.local/share/pnpm"
@@ -135,8 +139,10 @@ esac
 # pnpm end
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
 setopt HIST_IGNORE_SPACE
 
 mkdir -p ${ZDOTDIR:-~}/.zsh_functions
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+source $HOME/dotfiles/data/dotfiles/scripts.env
+
