@@ -47,12 +47,7 @@ fi
 log() { $SILENT || echo "$*"; }
 
 # ── sync ────────────────────────────────────────────────────
-mapfile -t ENTRIES < <(jq -r '.[] | @tsv' "$SYNC_JSON")
-
-for entry in "${ENTRIES[@]}"; do
-    machine_raw=$(cut -f1 <<<"$entry")
-    repo_raw=$(cut -f2 <<<"$entry")
-
+while IFS=$'\t' read -r machine_raw repo_raw; do
     # expand env vars in paths
     machine_path=$(eval echo "$machine_raw")
     repo_path="$REPO_ROOT/$repo_raw"
@@ -70,7 +65,15 @@ for entry in "${ENTRIES[@]}"; do
         continue
     fi
 
-    # cp -u handles "only if newer"; -r for directories
-    cp -ru --preserve=timestamps "$src" "$dst" && log "SYNC  $src → $dst" \
+    # rsync -u handles "only if newer"; works with GNU rsync and macOS openrsync.
+    # Directories get a trailing slash so contents land in $dst, not $dst/<name>.
+    if [[ -d "$src" ]]; then
+        mkdir -p "$dst"
+        src="$src/"
+    else
+        mkdir -p "$(dirname "$dst")"
+    fi
+
+    rsync -rtu "$src" "$dst" && log "SYNC  $src → $dst" \
         || echo "ERROR copying $src → $dst" >&2
-done
+done < <(jq -r '.[] | @tsv' "$SYNC_JSON")

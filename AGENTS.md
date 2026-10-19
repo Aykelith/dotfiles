@@ -13,6 +13,12 @@ Personal configuration files for a Linux development environment.
 - NVM (v0.40.3)
 - FiraCode Nerd Font
 
+`scripts/macos/install-apps.macos.sh` installs the same set on macOS via Homebrew
+(Go and Neovim are the latest brew versions, not pinned).
+
+Scripts must run on macOS's stock bash 3.2 and BSD tools: no `mapfile`,
+associative arrays, or GNU-only `cp`/`sed` flags.
+
 ## Shell
 
 zsh with oh-my-zsh.

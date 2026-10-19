@@ -2,13 +2,25 @@
 - name: Install base packages
   hosts: localhost
   connection: local
-  become: true
 
   tasks:
-    - name: Install base packages
+    - name: Install base packages (Debian)
+      become: true
       ansible.builtin.apt:
         name:
           - git
           - build-essential
         state: present
         update_cache: true
+      when: ansible_os_family == "Debian"
+
+    # Compilers come from the Xcode Command Line Tools, which Homebrew requires.
+    # Homebrew refuses to run as root, so no become here.
+    - name: Install base packages (macOS)
+      community.general.homebrew:
+        name:
+          - git
+          - jq
+        state: present
+        update_homebrew: true
+      when: ansible_os_family == "Darwin"

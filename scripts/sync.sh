@@ -22,9 +22,13 @@ TRACKED=(
 # ─── PER-FILE VARIABLE FILTERS ────────────────────────────────────────────────
 # List variable names to strip from a file before copying it to the repo.
 # Matches both "VAR=..." and "export VAR=..." forms.
-# Format: [".path/to/file"]="VAR1 VAR2"
-declare -A STRIP_VARS
-STRIP_VARS[".zshrc"]="GITLAB_AUTH_TOKEN"
+# Add a case per file: ".path/to/file") echo "VAR1 VAR2" ;;
+# (a function instead of an associative array so it runs on macOS's bash 3.2)
+strip_vars_for() {
+    case "$1" in
+        ".zshrc") echo "GITLAB_AUTH_TOKEN" ;;
+    esac
+}
 # ─────────────────────────────────────────────────────────────────────────────
 
 ERRORS=0
@@ -55,13 +59,15 @@ for path in "${TRACKED[@]}"; do
         # Build a filtered version of the file if STRIP_VARS are defined for it
         source_path="$local_path"
         tmp_file=""
-        if [ -n "${STRIP_VARS[$path]+x}" ]; then
+        strip_vars="$(strip_vars_for "$path")"
+        if [ -n "$strip_vars" ]; then
             tmp_file="$(mktemp)"
             sed_args=()
-            for var in ${STRIP_VARS[$path]}; do
-                sed_args+=(-e "/^[[:space:]]*\(export[[:space:]]\+\)\?${var}[[:space:]]*=/d")
+            for var in $strip_vars; do
+                # -E (ERE) works with both GNU and BSD sed; \+ and \? are GNU-only
+                sed_args+=(-e "/^[[:space:]]*(export[[:space:]]+)?${var}[[:space:]]*=/d")
             done
-            sed "${sed_args[@]}" "$local_path" > "$tmp_file"
+            sed -E "${sed_args[@]}" "$local_path" > "$tmp_file"
             source_path="$tmp_file"
         fi
 

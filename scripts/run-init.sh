@@ -25,7 +25,8 @@ fi
 if ! command -v ansible-playbook &>/dev/null; then
     echo "Error: ansible is not installed." >&2
     echo "  Install it with: pip install --user ansible" >&2
-    echo "  or:              sudo apt install ansible" >&2
+    echo "  or:              sudo apt install ansible   (Debian)" >&2
+    echo "  or:              brew install ansible       (macOS)" >&2
     exit 1
 fi
 
