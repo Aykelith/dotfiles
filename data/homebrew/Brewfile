@@ -1,0 +1,18 @@
+# Automate deployment, configuration, and upgrading
+brew "ansible"
+# Distributed revision control system
+brew "git"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# UNIX shell (command interpreter)
+brew "zsh"
+# Web browser focusing on privacy
+cask "brave-browser"
+# Terminal-based AI coding assistant
+cask "claude-code"
+# Web browser
+cask "google-chrome"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"

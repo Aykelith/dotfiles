@@ -7,10 +7,10 @@
     - name: Clone neovim dotfiles
       ansible.builtin.git:
         repo: git@github.com:Aykelith/neovim.dotfiles.git
-        dest: "{{ ansible_env.HOME }}/.config/nvim"
+        dest: "{{ ansible_facts.env.HOME }}/.config/nvim"
         update: false
 
     - name: Run neovim init script
       ansible.builtin.command:
-        cmd: "{{ ansible_env.HOME }}/.config/nvim/scripts/run-init.sh"
+        cmd: "{{ ansible_facts.env.HOME }}/.config/nvim/scripts/run-init.sh"
       changed_when: true

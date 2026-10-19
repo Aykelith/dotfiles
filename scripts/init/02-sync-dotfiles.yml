@@ -6,5 +6,5 @@
   tasks:
     - name: Run sync-to-machine.sh
       ansible.builtin.command:
-        cmd: "{{ ansible_env.HOME }}/dotfiles/scripts/sync-to-machine.sh"
+        cmd: "{{ ansible_facts.env.HOME }}/dotfiles/scripts/sync-to-machine.sh"
       changed_when: true

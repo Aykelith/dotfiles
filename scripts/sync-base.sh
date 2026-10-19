@@ -77,3 +77,14 @@ while IFS=$'\t' read -r machine_raw repo_raw; do
     rsync -rtu "$src" "$dst" && log "SYNC  $src → $dst" \
         || echo "ERROR copying $src → $dst" >&2
 done < <(jq -r '.[] | @tsv' "$SYNC_JSON")
+
+# ── homebrew ────────────────────────────────────────────────
+# Snapshot installed formulae/casks/taps into a Brewfile. Restoring it installs
+# software, so that happens in scripts/init/01-base-packages.yml, not here.
+BREWFILE="$REPO_ROOT/data/homebrew/Brewfile"
+
+if [[ "$DIRECTION" == "to-repo" ]] && command -v brew &>/dev/null; then
+    mkdir -p "$(dirname "$BREWFILE")"
+    brew bundle dump --force --file="$BREWFILE" >/dev/null 2>&1 && log "SYNC  brew bundle → $BREWFILE" \
+        || echo "ERROR dumping Brewfile → $BREWFILE" >&2
+fi
