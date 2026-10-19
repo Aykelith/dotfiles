@@ -128,6 +128,8 @@ path+=("/usr/local/go/bin")
 path+=("/usr/local/nvim/bin")
 path+=("/home/$USER/.local/bin")
 path+=("/opt/zig")
+path+=("/home/$USER/go/bin")
+path+=("/home/$USER/local-apps/bin")
 path+=("/home/$USER/local-apps/nvim/bin")
 
 # pnpm
@@ -145,4 +147,5 @@ mkdir -p ${ZDOTDIR:-~}/.zsh_functions
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
 source $HOME/dotfiles/data/dotfiles/scripts.env
+[[ -f $HOME/.secrets ]] && source $HOME/.secrets
 

@@ -2,7 +2,11 @@
     "window.commandCenter": true,
     "workbench.colorTheme": "Catppuccin Mocha",
     "remote.SSH.remotePlatform": {
-        "alex@192.168.21.11": "linux"
+        "alex@192.168.21.11": "linux",
+        "7b22686f73744e616d65223a22616c6578403139322e3136382e302e313030227d": "linux",
+        "192.168.0.100": "linux",
+        "7b22686f73744e616d65223a22616c6578403139322e3136382e32312e3131227d": "linux",
+        "192.168.21.11": "linux"
     },
     "editor.fontSize": 13,
     "workbench.iconTheme": "material-icon-theme",
@@ -14,5 +18,6 @@
     },
     "vim.useSystemClipboard": true,
     "remote.autoForwardPortsSource": "hybrid",
-    "git.blame.editorDecoration.enabled": false
+    "git.blame.editorDecoration.enabled": false,
+    "window.autoDetectColorScheme": false
 }

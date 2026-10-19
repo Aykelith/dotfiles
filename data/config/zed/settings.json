@@ -65,6 +65,7 @@
         }
     },
     "agent": {
+        "dock": "right",
         "enabled": false
     },
     "features": {
@@ -77,6 +78,7 @@
         "modal_max_width": "xlarge"
     },
     "project_panel": {
+        "dock": "left",
         "sticky_scroll": false
     },
     "buffer_font_features": {
