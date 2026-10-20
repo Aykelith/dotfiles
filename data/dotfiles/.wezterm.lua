@@ -6,8 +6,8 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 
--- For example, changing the color scheme:
-config.color_scheme = 'Pencil Dark (Gogh)'
+-- Ported from the Alacritty config (catppuccin-mocha is built into wezterm)
+config.color_scheme = 'Catppuccin Mocha'
 config.font = wezterm.font 'FiraCode Nerd Font Mono'
 config.font_size = 9
 
@@ -19,6 +19,11 @@ config.window_padding = {
     top = 0,
     bottom = 0,
   }
+
+config.keys = {
+  { key = 'Home', action = wezterm.action.SendString '\x1b[H' },
+  { key = 'End', action = wezterm.action.SendString '\x1b[F' },
+}
 
 -- and finally, return the configuration to wezterm
 return config
