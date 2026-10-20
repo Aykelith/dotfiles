@@ -6,6 +6,8 @@ brew "git"
 brew "jq"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Web browser focusing on privacy

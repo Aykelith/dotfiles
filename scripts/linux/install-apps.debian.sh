@@ -24,6 +24,7 @@ sudo apt install --yes \
 	cmake \
 	g++ \
 	pkg-config \
+	file \
 	brave-browser
 
 # Go
@@ -38,6 +39,12 @@ wget -O /tmp/nvim-linux-x86_64.tar.gz https://github.com/neovim/neovim/releases/
 sudo tar -C /usr/local -xzf /tmp/nvim-linux-x86_64.tar.gz
 sudo mv /usr/local/nvim-linux-x86_64 /usr/local/nvim
 # End - Nvim
+
+# Yazi
+wget -O /tmp/yazi-x86_64-unknown-linux-gnu.zip https://github.com/sxyazi/yazi/releases/download/v26.9.1/yazi-x86_64-unknown-linux-gnu.zip
+unzip -o /tmp/yazi-x86_64-unknown-linux-gnu.zip -d /tmp
+sudo install -m 755 /tmp/yazi-x86_64-unknown-linux-gnu/yazi /tmp/yazi-x86_64-unknown-linux-gnu/ya /usr/local/bin/
+# End - Yazi
 
 # Oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

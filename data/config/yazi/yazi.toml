@@ -1,0 +1,22 @@
+# Text files open in nvim in a new terminal window, so yazi stays usable.
+# Uses the first terminal found: wezterm, kitty, alacritty.
+
+[opener]
+edit-new-term = [
+	{ run = '''
+		if command -v wezterm >/dev/null; then wezterm start -- nvim %s
+		elif command -v kitty >/dev/null; then kitty nvim %s
+		elif command -v alacritty >/dev/null; then alacritty -e nvim %s
+		else echo "yazi: no terminal (wezterm, kitty, alacritty) found" >&2; exit 1
+		fi
+	''', orphan = true, desc = "nvim (new terminal)", for = "unix" },
+]
+
+[open]
+# Matched before the default rules; the in-place $EDITOR opener stays available
+# as the second choice in the "Open with" menu.
+prepend_rules = [
+	{ mime = "text/*", use = [ "edit-new-term", "edit", "reveal" ] },
+	{ mime = "application/{json,ndjson,javascript,wine-extension-ini}", use = [ "edit-new-term", "edit", "reveal" ] },
+	{ mime = "inode/empty", use = [ "edit-new-term", "edit", "reveal" ] },
+]

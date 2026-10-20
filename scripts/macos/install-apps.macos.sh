@@ -35,7 +35,8 @@ brew install \
 	pkg-config \
 	jq \
 	go \
-	neovim
+	neovim \
+	yazi
 
 brew install --cask \
 	brave-browser \
@@ -51,3 +52,4 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 go version
 nvim --version | head -1
+yazi --version | head -1
