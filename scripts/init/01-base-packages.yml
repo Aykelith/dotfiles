@@ -10,6 +10,8 @@
         name:
           - git
           - build-essential
+          - curl
+          - zsh
         state: present
         update_cache: true
       when: ansible_facts.os_family == "Debian"
