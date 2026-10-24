@@ -131,6 +131,10 @@ path+=("/home/$USER/go/bin")
 path+=("/home/$USER/local-apps/bin")
 path+=("/home/$USER/local-apps/nvim/bin")
 
+# After the PATH setup so nvim in local-apps is found.
+if (( $+commands[nvim] )); then export EDITOR=nvim; else export EDITOR=vim; fi
+export VISUAL=$EDITOR
+
 # pnpm
 export PNPM_HOME="/home/alexxanderx/.local/share/pnpm"
 case ":$PATH:" in
