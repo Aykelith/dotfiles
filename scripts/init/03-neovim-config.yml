@@ -14,3 +14,9 @@
       ansible.builtin.command:
         cmd: "{{ ansible_facts.env.HOME }}/.config/nvim/scripts/run-init.sh"
       changed_when: true
+
+    # Git runs core.editor through sh, so the fallback is picked at each use.
+    - name: Use nvim as git editor, vim if nvim is missing
+      ansible.builtin.command:
+        argv: [git, config, --global, core.editor, "$(command -v nvim || echo vim)"]
+      changed_when: true
