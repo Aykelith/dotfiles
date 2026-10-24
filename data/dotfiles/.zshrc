@@ -125,7 +125,6 @@ bindkey "^[OF" end-of-line
 path=("/home/$USER/.npm-global/bin" $path)
 path+=("/home/$USER/.cargo/bin")
 path+=("/usr/local/go/bin")
-path+=("/usr/local/nvim/bin")
 path+=("/home/$USER/.local/bin")
 path+=("/opt/zig")
 path+=("/home/$USER/go/bin")
