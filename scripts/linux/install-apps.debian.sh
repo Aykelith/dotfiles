@@ -68,8 +68,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
 # FiraCode font
 wget -O /tmp/FiraCode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip
-unzip /tmp/FiraCode.zip -d FiraCode
-sudo cp /tmp/FiraCode/* /usr/local/share/fonts/
+unzip -o /tmp/FiraCode.zip -d /tmp/FiraCode
+sudo mkdir -p /usr/local/share/fonts
+sudo cp /tmp/FiraCode/*.ttf /usr/local/share/fonts/
 fc-cache -fv
 # End - FiraCode font
 
