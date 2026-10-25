@@ -14,6 +14,8 @@ brew "zsh"
 cask "brave-browser"
 # Terminal-based AI coding assistant
 cask "claude-code"
+# App to build and share containerised applications and microservices
+cask "docker-desktop"
 # Web browser
 cask "google-chrome"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
