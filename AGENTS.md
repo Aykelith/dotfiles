@@ -26,3 +26,12 @@ associative arrays, or GNU-only `cp`/`sed` flags.
 
 zsh with oh-my-zsh.
 
+
+## Rust builds
+
+Parallel cargo builds across projects ran out of RAM, so:
+- `data/dotfiles/scripts.env` defines a `cargo` zsh function that queues
+  build/check/clippy/test/bench/doc/install machine-wide with `flock`
+  (one at a time). `cargo run` and others are not queued. Bypass: `command cargo`.
+- Debug-info level is a per-project choice (agents-tools `xal-new-project`),
+  not set globally here. No mold needed: Rust >= 1.90 links with rust-lld.
