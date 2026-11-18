@@ -40,7 +40,16 @@ brew install \
 
 brew install --cask \
 	brave-browser \
+	docker-desktop \
 	font-fira-code-nerd-font
+
+# Docker Desktop: don't start at login. Its data lives on an external SSD, so
+# start it with data/scripts/docker-start.macos.sh, which checks the drive first.
+DOCKER_SETTINGS="$HOME/Library/Group Containers/group.com.docker/settings-store.json"
+mkdir -p "$(dirname "$DOCKER_SETTINGS")"
+[[ -f "$DOCKER_SETTINGS" ]] || echo '{}' > "$DOCKER_SETTINGS"
+jq '.AutoStart = false' "$DOCKER_SETTINGS" > "$DOCKER_SETTINGS.tmp"
+mv "$DOCKER_SETTINGS.tmp" "$DOCKER_SETTINGS"
 
 # Oh-my-zsh
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then

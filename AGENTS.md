@@ -17,10 +17,23 @@ On Linux, Neovim is installed to `~/local-apps/nvim` by the nvim config repo's
 own init script (run from `scripts/init/03-neovim-config.yml`), not here.
 
 `scripts/macos/install-apps.macos.sh` installs the same set on macOS via Homebrew
-(Go, Neovim and Yazi are the latest brew versions, not pinned).
+(Go, Neovim and Yazi are the latest brew versions, not pinned), plus Docker Desktop
+with start-at-login turned off.
 
 Scripts must run on macOS's stock bash 3.2 and BSD tools: no `mapfile`,
 associative arrays, or GNU-only `cp`/`sed` flags.
+
+## Docker Desktop (macOS)
+
+Docker's data folder (`Docker.raw`) lives on an external SSD, so Docker is
+started and stopped by hand instead of at login:
+- `data/scripts/docker-start.macos.sh` (alias `xal-docker-start`) checks that the
+  data folder is mounted and writable, sets it as Docker's `DataFolder`, and starts
+  Docker. Folder: `--data-dir`, else `$DOCKER_DESKTOP_DATA_DIR`, else the saved
+  default in `~/.config/docker-desktop/data-dir`, else
+  `/Volumes/AlexSSDMacDocker/Docker/DockerDesktop`. If unavailable it asks to stop
+  or use another folder, temporarily or permanently.
+- `data/scripts/docker-stop.macos.sh` (alias `xal-docker-stop`) quits Docker.
 
 ## Shell
 
