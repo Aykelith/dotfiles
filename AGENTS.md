@@ -6,6 +6,9 @@ Personal configuration files for a Linux development environment.
 
 `scripts/linux/install-apps.debian.sh` installs:
 - Core tools: curl, wget, git, tmux, zsh, vim, unzip, cmake, g++
+- zram swap and earlyoom, via `scripts/linux/setup-memory.debian.sh` (also
+  runnable alone): zstd zram at 50% of RAM, swappiness 100, earlyoom kills
+  compilers first at 5% free memory
 - Brave browser, only on machines with a GUI (display server running or `graphical.target` default)
 - Go (v1.24.2), if the user answers yes at the prompt
 - Yazi (v26.9.1), if the user answers yes at the prompt; config in `data/config/yazi` opens text files in nvim in a new terminal
