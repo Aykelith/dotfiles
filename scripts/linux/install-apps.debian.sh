@@ -44,6 +44,9 @@ sudo apt install --yes \
 	file \
 	${INSTALL_BRAVE:+brave-browser}
 
+# zram + earlyoom, so running out of RAM kills a build instead of freezing the machine
+bash "$(dirname "$0")/setup-memory.debian.sh"
+
 # Go
 if [ -n "$INSTALL_GO" ]; then
 	sudo rm -f /usr/local/go
